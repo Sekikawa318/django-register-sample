@@ -20,7 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=japbnl&5^p%b$)(d!2%n@g9zwj^6mp3&o&d+u#37j2!))ebv0'
+# SECRET_KEY = '=japbnl&5^p%b$)(d!2%n@g9zwj^6mp3&o&d+u#37j2!))ebv0'
+
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = get_random_secret_key()  
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -129,3 +132,6 @@ LOGIN_REDIRECT_URL = 'register:top'
 
 # メールをコンソールに表示する
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
